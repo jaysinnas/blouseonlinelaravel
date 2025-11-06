@@ -53,7 +53,7 @@
             </div>
             <div class="col text-center">
                 <img src="{{ asset('assets/images/tailoring_matrials/victor-volkov-jIyzx1YSH5g-unsplash.jpg') }}" alt="Textile" class="img-fluid rounded">
-                <p>Textile with contrast color thread</p>
+                <p>Textile thread</p>
             </div>
         </div>
 

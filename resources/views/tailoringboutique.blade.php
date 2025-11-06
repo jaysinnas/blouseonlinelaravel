@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 
-@section('title', 'Aari blousesBlouse On Line')
+@section('title', 'Aari blouses | Tailoring boutique')
 
 @section('content')
     <section class="container my-5">
@@ -11,7 +11,7 @@
             <!-- partie gauche -->
             <div class="col-md-4">
                 <div class="mb-3">
-                    <img src="assets/images/imagescontainer/tailor_shop/raj-adhikari-XcsFNBAeb9k-unsplash.jpg" alt="Tailoring shop"
+                    <img src="{{ asset('assets/images/imagescontainer/tailor_shop/raj-adhikari-XcsFNBAeb9k-unsplash.jpg') }}" alt="Tailoring shop"
                          class="img-fluid rounded border border-3 border-danger">
                 </div>
             </div>
@@ -45,22 +45,33 @@
             </div> 
         </div>
 
+        <!-- comments section -->
         <div class="mt-5 bg-success-subtle rounded">
             <h4 class="text-center">Comments</h4>
-            <form id="contactForm" class="mt-4 p-5">
-                
+
+            {{-- Message de succès --}}
+            @if(session('success'))
+                <div class="alert alert-success mt-3 text-center">
+                    {{ session('success') }}
+                </div>
+            @endif
+
+            <!-- <div class="mt-5 bg-success-subtle rounded">
+            <h4 class="text-center">Comments</h4> -->
+            <form action="{{ route('comments.store') }}" method="POST" class="mt-4 p-5" id="contactForm">
+                 @csrf
                 <h5 class="text-center mb-5">Write your comment</h5>
                 <div class="row">
                     <div class="col-md-6">
                         <div class="mb-3">
                             <label for="name" class="form-label">Name</label>
-                            <input type="text" id="name" class="form-control" required />
+                            <input type="text" id="name" name="name" class="form-control" required />
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="mb-3">
                             <label for="email" class="form-label">Email</label>
-                            <input type="email" id="email" class="form-control"  required/>
+                            <input type="email" id="email" name="email" class="form-control"  required/>
                         </div>
                     </div>
                 </div>
@@ -68,14 +79,16 @@
                     <label for="comment" class="form-label">Comment</label>
                     <textarea name="comment" id="comment" class="form-control" rows="3" required></textarea>
                 </div>
-                <button type="submit" class="btn btn-success text-white">submit</button>
+                <div class="d-grid">
+                    <button type="submit" class="btn btn-success text-white">submit</button>
+                </div>
             </form>
             <!-- confirmation message -->
-            <p id="confirmationMessage" class="mt-3 text-success fw-bold" style="display: none;">
+            <!-- <p id="confirmationMessage" class="mt-3 text-success fw-bold" style="display: none;">
                 Your comment has been submitted successfully. It will be published after admin approval.
-            </p>
+            </p> -->
         </div>
-    </section>
+</section>
   
    
     <!-- Ajouter icon angle up -->

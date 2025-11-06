@@ -1,5 +1,6 @@
 body{
-  background-color: #228869;
+  /* background-color: #228869; */
+   background-color: #b4d6cc;
 }
 .title{
   font-family: "Oleo Script", system-ui;
@@ -105,4 +106,10 @@ opacity: 1; /* Visible on hover*/
   color:#800430;
   font-weight: bold;
   border-radius:0 12px;
+}
+
+
+/* navbar */
+.navbar-toggler-icon {
+  filter: invert(40%) sepia(90%) saturate(400%) hue-rotate(100deg);
 }

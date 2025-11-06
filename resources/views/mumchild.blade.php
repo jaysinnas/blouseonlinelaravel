@@ -13,7 +13,7 @@
                 <div class="row">
                     <!-- LOGO + Description -->
                     <div class="col-md-4 mb-4">
-                        <a href="index.html">
+                        <a href="{{ route('index') }}">
                             <img src="assets/logo/logoblouse_2.png" alt="Logo" class="mb-3">
                         </a>
                         <p class="small fw-bold">
@@ -21,17 +21,17 @@
                             of pooja products such as ornamentals, wearable items like bracelets 
                             and maalais, pooja items like...
                         </p>
-                        <a href="about.html" class="text-dark fw-bold text-decoration-none">Read More...</a>
+                        <a href="{{ route('about') }}" class="text-dark fw-bold text-decoration-none">Read More...</a>
                     </div>
 
                     <!-- COMPANY -->
                     <div class="col-md-2 mb-4">
                         <h5 class="fw-bold">Company</h5>
                         <ul class="list-unstyled small">
-                            <li><a href="about.html" class="text-success text-decoration-none">About Us</a></li>
-                            <li><a href="jobs.html" class="text-success text-decoration-none">Jobs</a></li>
-                            <li><a href="press.html" class="text-success text-decoration-none">Press</a></li>
-                            <li><a href="contact.html" class="text-success text-decoration-none">Contact</a></li>
+                            <li><a href="{{ route('about') }}" class="text-success text-decoration-none">About Us</a></li>
+                            <li><a href="{{ route('jobs') }}" class="text-success text-decoration-none">Jobs</a></li>
+                            <li><a href="{{ route('press') }}" class="text-success text-decoration-none">Press</a></li>
+                            <li><a href="{{ route('contact') }}" class="text-success text-decoration-none">Contact</a></li>
                         </ul>
                     </div>
 
@@ -39,7 +39,7 @@
                     <div class="col-md-2 mb-4">
                         <h5 class="fw-bold">Community</h5>
                         <ul class="list-unstyled small fw-bold">
-                            <li><a href="about.html" class="text-success text-decoration-none">About Us</a></li>
+                            <li><a href="{{ route('about')}}" class="text-success text-decoration-none">About Us</a></li>
                         </ul>
                     </div>
 
@@ -47,10 +47,10 @@
                     <div class="col-md-2 mb-4">
                         <h5 class="fw-bold">Legal</h5>
                         <ul class="list-unstyled small fw-bold">
-                            <li><a href="privacy.html" class="text-success text-decoration-none">Privacy Policy</a></li>
-                            <li><a href="refund.html" class="text-success text-decoration-none">Refund Policy</a></li>
-                            <li><a href="terms.html" class="text-success text-decoration-none">Terms & Conditions</a></li>
-                            <li><a href="disclaimer.html" class="text-success text-decoration-none">Disclaimer</a></li>
+                            <li><a href="{{ route('privacy') }}" class="text-success text-decoration-none">Privacy Policy</a></li>
+                            <li><a href="{{ route('refund') }}" class="text-success text-decoration-none">Refund Policy</a></li>
+                            <li><a href="{{ route('terms') }}" class="text-success text-decoration-none">Terms & Conditions</a></li>
+                            <li><a href="{{ route('disclaimer') }}" class="text-success text-decoration-none">Disclaimer</a></li>
                         </ul>
                     </div>
 
@@ -74,7 +74,7 @@
 
                         <!-- Copyright -->
                         <div class="col-md-4 mb-3 mb-md-0 text-center">
-                            <a href="index.html" class="text-decoration-none">
+                            <a href="{{ route('index') }}" class="text-decoration-none">
                                 <small class="fw-bold text-success text-decoration-none">&copy; 2025 blouseonline. All Rights Reserved.</small>
                             </a>
                         </div> 

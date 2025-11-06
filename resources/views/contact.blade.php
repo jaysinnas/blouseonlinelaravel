@@ -5,8 +5,8 @@
 
 @section('content')
 
-    <section class="container my-5">
-        <div class=" pt-2 mb-3 bg-danger-subtle rounded " >
+    <section class="container my-5 p-3 bg-success rounded-4 shadow-sm">
+        <div class="pt-2 mb-3 bg-danger-subtle rounded-4 " >
             <div class="row g-5 mt-4 mx-auto">
                 <h2 class="text-center text-success fw-bold">Enquiry Form</h2>
                 <!-- Contact Form -->
@@ -83,6 +83,5 @@
     <a id="scrollup" href="#top">
         <i class="fa fa-angle-up text-danger"></i>
     </a>
-
 
 @endsection

@@ -37,7 +37,7 @@
                         </div>
 
                         <div class="text-center mt-3">
-                            <a href="index.html" class="text-decoration-none text-success fw-bold">&larr; Back To Home Page</a>
+                            <a href="{{ route('index') }}" class="text-decoration-none text-success fw-bold">&larr; Back To Home Page</a>
                         </div>
                     </div>
                 </div>

@@ -37,7 +37,7 @@
     <section>
         <!-- TAILOR SHOP : Boutique section-->
         <div class="row justify-content-center bg-success-subtle p-5">
-            <div class="col-md-6 shop-container text-center">
+            <div class="col-md-8 shop-container text-center">
                 <h2 class="mb-4 mt-4 text-success">Most Liked Shop</h2>
                 <!-- flex container: image on the left address on the right -->
                 <div class="d-flex flex-column flex-md-row align-items-center justify-content-center gap-5">

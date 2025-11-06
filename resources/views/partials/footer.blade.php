@@ -16,17 +16,17 @@
                             of pooja products such as ornamentals, wearable items like bracelets 
                             and maalais, pooja items like...
                         </p>
-                        <a href="about.html" class="text-dark fw-bold text-decoration-none">Read More...</a>
+                        <a href="{{ route('company.about') }}" class="text-dark fw-bold text-decoration-none">Read More...</a>
                     </div>
 
                     <!-- COMPANY -->
                     <div class="col-md-2 mb-4">
                         <h5 class="fw-bold">Company</h5>
                         <ul class="list-unstyled small fw-bold">
-                            <li><a href="about.html" class="text-success text-decoration-none">About Us</a></li>
-                            <li><a href="jobs.html" class="text-success text-decoration-none">Jobs</a></li>
-                            <li><a href="press.html" class="text-success text-decoration-none">Press</a></li>
-                            <li><a href="contact.html" class="text-success text-decoration-none">Contact</a></li>
+                            <li><a href="{{ route('company.about') }}" class="text-success text-decoration-none">About Us</a></li>
+                            <li><a href="{{ route('company.jobs') }}" class="text-success text-decoration-none">Jobs</a></li>
+                            <li><a href="{{ route('company.press') }}" class="text-success text-decoration-none">Press</a></li>
+                            <li><a href="{{ route('company.contact') }}" class="text-success text-decoration-none">Contact</a></li>
                         </ul>
                     </div>
 
@@ -34,7 +34,7 @@
                     <div class="col-md-2 mb-4 ">
                         <h5 class="fw-bold">Community</h5>
                         <ul class="list-unstyled small fw-bold">
-                            <li><a href="about.html" class="text-success text-decoration-none">About Us</a></li>
+                            <li><a href="{{ route('community.about') }}" class="text-success text-decoration-none">About Us</a></li>
                         </ul>
                     </div>
 
@@ -42,10 +42,10 @@
                     <div class="col-md-2 mb-4 ">
                         <h5 class="fw-bold">Legal</h5>
                         <ul class="list-unstyled small fw-bold">
-                            <li><a href="privacy.html" class="text-success text-decoration-none">Privacy Policy</a></li>
-                            <li><a href="refund.html" class="text-success text-decoration-none">Refund Policy</a></li>
-                            <li><a href="terms.html" class="text-success text-decoration-none">Terms & Conditions</a></li>
-                            <li><a href="disclaimer.html" class="text-success text-decoration-none">Disclaimer</a></li>
+                            <li><a href="{{ route('legal.privacy') }}" class="text-success text-decoration-none">Privacy Policy</a></li>
+                            <li><a href="{{ route('legal.refund') }}" class="text-success text-decoration-none">Refund Policy</a></li>
+                            <li><a href="{{ route('legal.terms') }}" class="text-success text-decoration-none">Terms & Conditions</a></li>
+                            <li><a href="{{ route('legal.disclaimer') }}" class="text-success text-decoration-none">Disclaimer</a></li>
                         </ul>
                     </div>
 

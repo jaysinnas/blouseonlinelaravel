@@ -33,7 +33,7 @@
 
                 <!-- Forgot Password -->
                 <p class="text-center mb-0">
-                    Forgot your password? <a href="reset.html" class="text-decoration-none">Reset Here</a>
+                    Forgot your password? <a href="{{ route('reset') }}" class="text-decoration-none">Reset Here</a>
                 </p>
             </form>
 
@@ -48,11 +48,13 @@
                     </a>
                 </p>
                 <p class="mb-0">Don't have any account? 
-                    <a href="register.html" class="text-decoration-none fw-bold">Register Here</a>
+                    <a href="{{ route('register') }}" class="text-decoration-none fw-bold">Register Here</a>
                 </p>
             </div>
         </div>
     </div>
+  
+
 
        <!-- Modal Invalid Email -->
     <div class="modal fade" id="invalidEmailModal" tabindex="-1" aria-hidden="true">

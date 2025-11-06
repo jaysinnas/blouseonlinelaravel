@@ -49,7 +49,7 @@ class PageController extends Controller
     }
 
     public function tailorsmen() {
-        return view('tailors_men'); // resources/views/tailors_men.blade.php
+        return view('tailors_men'); // resources/views/tailorsmen.blade.php
     }
 
      public function tailoringboutique(){
@@ -61,10 +61,36 @@ class PageController extends Controller
     }
 
     public function search(){
-        return view('search'); //resources/views/navbar.blade.php
+        return view('search'); //resources/views/search.blade.php
+    }
+      public function aboutcommunity(){
+        return view('pages.community.about');
+    }
+    public function aboutCompany(){
+        return view('pages.company.about');
+    }
+    public function contactCompany(){
+        return view('pages.company.contact');
+    }
+    public function jobscompany(){
+        return view('pages.company.jobs');
+    }
+    public function presscompany(){
+        return view('pages.company.press');
+    }
+    public function disclaimerLegal(){
+        return view('pages.legal.disclaimer'); //reources/view/disclaimer.blade.php
+    }
+    public function privacyLegal() {
+        return view('pages.legal.privacy'); // resources/views/privacy.blade.php
+    }
+    public function refundLegal(){
+        return view('pages.legal.refund'); //resources/views/refund.blade.php
+    }
+    public function termsLegal(){
+        return view('pages.legal.terms'); //resources/view/terms.blade.php
     }
 
-    //  public function login(){
-    //      return view('login'); //reources/view/navebar.blade.php
-    //  }
 }
+
+
