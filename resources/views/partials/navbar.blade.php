@@ -41,9 +41,35 @@
 
                 <!-- Icones -right position-->
                 <ul class="navbar-nav d-flex flex-row fs-4">
+                    <form action="{{ route('search') }}" method="GET" class="d-flex gap-2">
+                    <!-- </form> -->
+                        <li class="nav-item me-3">
+                            <a class="nav-link text-success" href="{{ route('search') }}">
+                                <i class="fas fa-search"></i>
+                            </a>
+                        </li>
+                    </form>
+                
                     <li class="nav-item me-3">
-                        <a class="nav-link text-success" href="{{ route('search') }}">
-                            <i class="fas fa-search"></i>
+                        <a class="nav-link text-success position-relative" href="{{ route('wishlist.index') }}">
+                            <i class="fas fa-heart"></i>
+                            @if(isset($wishlistItemCount) && $wishlistItemCount > 0)
+                                <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" style="font-size: 0.5em;">
+                                    {{ $wishlistItemCount }}
+                                </span>
+                            @endif
+                        </a>
+                    </li>
+                    
+                    <li class="nav-item me-3">
+                        <a class="nav-link text-success position-relative" href="{{ route('cart.index') }}">
+                            <i class="fas fa-shopping-cart"></i>
+                            @if(isset($cartItemCount) && $cartItemCount > 0)
+                                <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" style="font-size: 0.5em;">
+                                    {{ $cartItemCount }}
+                                    <span class="visually-hidden">items in cart</span>
+                                </span>
+                            @endif
                         </a>
                     </li>
                     <li class="nav-item">

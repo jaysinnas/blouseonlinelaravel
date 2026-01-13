@@ -19,7 +19,7 @@
      <link rel="stylesheet" href="{{asset('assets/css/style.css')}}">
 </head>
 <body>
-    {{-- Exemple de menu/nav commun --}}
+    <!-- {{-- Exemple de menu/nav commun --}} -->
     @include('partials.navbar')
 
     <!-- principle content -->
@@ -27,7 +27,7 @@
         @yield('content')
     </main>
 
-    {{-- Exemple de footer commun --}}
+    <!-- {{-- Exemple de footer commun --}} -->
     @include('partials.footer')
 
     <!-- Bootstrap JS Bundle -->

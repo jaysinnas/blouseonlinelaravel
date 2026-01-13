@@ -4,8 +4,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const confirmation = document.querySelector("#confirmationMessage");
 
     if (form && confirmation) {
-        form.addEventListener("submit", function(event) {
-            event.preventDefault(); // Empêche le rechargement
+        form.addEventListener("submit", function() {
+            // event.preventDefault(); // Empêche le rechargement
             confirmation.style.display = "block"; // Affiche le message
             form.reset(); // Vide le formulaire
         });

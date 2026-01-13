@@ -5,7 +5,35 @@
 @source '../**/*.blade.php';
 @source '../**/*.js';
 
-@theme {
+/* @theme {
     --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
         'Segoe UI Symbol', 'Noto Color Emoji';
+} */
+
+/* Add these styles to your main CSS file */
+.product-card {
+    position: relative; /* Crucial: Establishes a positioning context for children */
 }
+
+.wishlist-icon-overlay {
+    position: absolute; /* Crucial: Positions the icon relative to the parent (.product-card) */
+    top: 10px;          /* Distance from the top edge */
+    right: 10px;        /* Distance from the right edge */
+    z-index: 10;        /* Ensures the icon sits on top of the image */
+}
+
+/* Style the heart icon */
+.wishlist-icon-overlay a {
+    color: #d70b0b; /* White heart color */
+    background: rgba(0, 0, 0, 0.4); /* Semi-transparent background */
+    border-radius: 50%; /* Makes it circular */
+    padding: 8px;
+    font-size: 1.2em;
+    display: block; /* Ensures padding works */
+    transition: all 0.2s;
+}
+
+.wishlist-icon-overlay a:hover {
+    background: #f79ea7; /* Red background on hover */
+}
+

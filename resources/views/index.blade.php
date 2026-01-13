@@ -80,8 +80,14 @@
                     <div class="col-md-{{ $card[4] }}">
                         <a href="{{ route($card[3]) }}">
                             <div class="card border-success rounded-4 shadow-lg h-100">
-                                <img src="{{ asset('assets/images/imagescontainer/trendy/'.$card[0]) }}" 
-                                    class="card-img img-fluid object-fit-cover" alt="{{ $card[1] }}" style="height:{{ $card[5] }}px;">
+                                <!-- <img src="{{ asset('assets/images/imagescontainer/trendy/'.$card[0]) }}" class="card-img img-fluid object-fit-cover" alt="{{ $card[1] }}" style="height:{{ $card[5] }}px;"> -->
+                            <img 
+                                src="{{ asset('assets/images/imagescontainer/trendy/' . $card[0]) }}" 
+                                class="card-img img-fluid object-fit-cover" 
+                                alt="{{ $card[1] }}">
+
+
+
                                 <div class="card-img-overlay d-flex flex-column justify-content-end">
                                     <h2 class="fs-5 text-danger">{{ $card[1] }}</h2>
                                     <p class="text-danger fw-bold fs-4">{{ $card[2] }}</p>
@@ -98,26 +104,83 @@
         <div class="bg-danger-subtle p-5 mt-5">
             <h2 class="text-center fs-2 fw-bold mb-5 text-success">POPULAR IN THIS WEEK</h2>
             <div class="row g-4">
+                <!-- {{-- Updated the array to use Category Slugs and the 'category.show' route --}} -->
                 @foreach([
-                    ['kidsDress.jpg','Babies','3050','index'],
-                    ['Babies.jpg','Kids','5500','index'],
-                    ['aariWorks.jpg','Aari Blouse','7000','aariblouse'],
-                    ['mother_daughter.jpg','Mother & Daughter','9500','mumchild'],
+                    ['kidsDress.jpg', 'Babies', '3050', 'babies'], // Category slug is 'babies'
+                    ['Babies.jpg', 'Kids', '5500', 'kids'],       // Category slug is 'kids'
+                    ['aariWorks.jpg', 'Aari Blouse', '7000', 'aari blouse'], // Category slug is 'aari blouse'
+                    ['mother_daughter.jpg', 'Mother & Daughter', '9500', 'mother-daughter'], // Category slug is 'mother-daughter'
                 ] as $popular)
                     <div class="col-md-3">
                         <div class="card border-success rounded-4 shadow-lg h-100 position-relative overflow-hidden">
-                            <a href="{{ route($popular[3]) }}">
+                            <!-- {{-- Link uses the category.show route and passes the slug --}} -->
+                            <a href="{{ route('category.show', ['name' => $popular[3]]) }}">
                                 <img src="{{ asset('assets/images/popular/'.$popular[0]) }}" class="card-img img-fluid object-fit-cover" alt="{{ $popular[1] }}" style="height:400px;">
                             </a>
                             <div class="popular position-absolute top-0 start-0 w-100 h-100 d-flex flex-column justify-content-center align-items-center text-center">
                                 <h4 class="fw-bold text-success">{{ $popular[1] }} <br><span>{{ $popular[2] }} RS</span></h4>
-                                <a href="{{ route($popular[3]) }}" class="btn btn-sm btn-success mt-2">View all</a>
+                                <!-- {{-- Link uses the category.show route and passes the slug --}} -->
+                                <a href="{{ route('category.show', ['name' => $popular[3]]) }}" class="btn btn-sm btn-success mt-2">View all</a>
                             </div>
                         </div>
                     </div>
                 @endforeach
             </div>
         </div>
+        <!-- ***************** -->
+
+
+
+        <!-- icons -->
+        <div class="p-5 mt-5">
+            <div class="container">
+                <div class="row">
+                
+                    <!-- Bloc 1 -->
+                    <div class="col-md-4">
+                        <div class="d-flex align-items-center">
+                            <img src="{{ asset('assets/images/icons_blouse/forwarder_18386347.png') }}" 
+                                alt="Delivery" 
+                                class="img-fluid me-3" 
+                                style="width:60px; height:60px;">
+                            <div>
+                                <h4 class="mb-1"><span class="fst-italic">Free Home Delivery</span></h4>
+                                <p class="mb-0">Provide free home delivery for all product over $100</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Bloc 2 -->
+                    <div class="col-md-4">
+                        <div class="d-flex align-items-center">
+                            <img src="{{ asset('assets/images/icons_blouse/guarantee_17338009.png') }}" 
+                                alt="Quality" 
+                                class="img-fluid me-3" 
+                                style="width:60px; height:60px;">
+                            <div>
+                                <h4 class="mb-1"><span class="fst-italic">Quality Products</span></h4>
+                                <p class="mb-0">We ensure our product quality all times</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Bloc 3 -->
+                    <div class="col-md-4">
+                        <div class="d-flex align-items-center">
+                            <img src="{{ asset('assets/images/icons_blouse/return-package_15002556.png') }}" 
+                            alt="Return" 
+                            class="img-fluid me-3" 
+                            style="width:60px; height:60px;">
+                            <div>
+                                <h4 class="mb-1"><span class="fst-italic">3 Day Return</span></h4>
+                                <p class="mb-0">Our product return policy is very easy & simple</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
 
         <!-- Subscription Form -->
         <div class="container py-4 px-5 bg-danger-subtle rounded-4 mt-5">
@@ -128,7 +191,7 @@
                 </div>
                 <div class="col-md-4">
                     <form action="#">
-                        <div class="input-group input-group-mb">
+                        <div class="input-group ">
                             <input type="text" class="form-control py-2" placeholder="Enter your mail">
                             <button class="btn btn-success rounded" type="submit">Submit</button>
                         </div>

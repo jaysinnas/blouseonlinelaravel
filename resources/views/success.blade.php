@@ -13,8 +13,7 @@
         </div>
     </section>
 
-   
-
+    
     <!-- Ajouter icon angle up -->
     <a id="scrollup" href="#top">
         <i class="fa fa-angle-up text-danger"></i>

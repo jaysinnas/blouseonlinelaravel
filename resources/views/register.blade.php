@@ -5,9 +5,7 @@
 
 @section('content')
 
-        
         <!--SIGNUP FORM  -->
-
         <div class="container my-5 bg-success-subtle rounded-4">
             <h1 class="text-center text-success mb-4 mt-4" >Signup</h1>
             <div class="row justify-content-center">

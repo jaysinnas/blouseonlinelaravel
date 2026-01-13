@@ -18,19 +18,19 @@
                 <img src="{{ asset('assets/images/mentailor/men_tailor_3.jpg') }}" alt="Merron Aari back"   class="img-fluid shadow-sm gallery-img rounded">
             </div>
             <div class="col-md-3 col-sm-6">
-                <img src="{{ asset('assets/images/mentailor/men_tailor_4.jpg') }}" alt="Green and Red blouse"   class="img-fluid shadow-sm gallery-img rounded">
+                <img src="{{ asset('assets/images/mentailor/men_tailor_4.jpg') }}" alt="men dress"   class="img-fluid shadow-sm gallery-img rounded">
             </div>
             <div class="col-md-3 col-sm-6">
-                <img src="{{ asset('assets/images/mentailor/men_kurta_5.jpg') }}" alt="Green and Red blouse"   class="img-fluid shadow-sm gallery-img rounded">
+                <img src="{{ asset('assets/images/mentailor/men_kurta_5.jpg') }}" alt="kurta dress"   class="img-fluid shadow-sm gallery-img rounded">
             </div>
             <div class="col-md-3 col-sm-6">
-                <img src="{{ asset('assets/images/mentailor/men_tailor_6.jpg') }}" alt="Green and Red blouse"   class="img-fluid shadow-sm gallery-img rounded">
+                <img src="{{ asset('assets/images/mentailor/men_tailor_6.jpg') }}" alt="men dresses"   class="img-fluid shadow-sm gallery-img rounded">
             </div>
             <div class="col-md-3 col-sm-6">
-                <img src="{{ asset('assets/images/mentailor/men-shrit_7.jpg') }}" alt="Green and Red blouse"   class="img-fluid shadow-sm gallery-img rounded">
+                <img src="{{ asset('assets/images/mentailor/men-shrit_7.jpg') }}" alt="men shirt"   class="img-fluid shadow-sm gallery-img rounded">
             </div>
             <div class="col-md-3 col-sm-6">
-                <img src="{{ asset('assets/images/mentailor/men_vest_8.jpg')}}" alt="Green and Red blouse"   class="img-fluid shadow-sm gallery-img rounded">
+                <img src="{{ asset('assets/images/mentailor/men_vest_8.jpg')}}" alt="men vest"   class="img-fluid shadow-sm gallery-img rounded">
             </div>
         </div>
     </section>
