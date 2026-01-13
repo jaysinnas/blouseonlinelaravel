@@ -92,6 +92,9 @@
             <a href="{{ route('boutique') }}" class="btn btn-info mt-2">Continue Shopping</a>
         </div>
     @endif
-</div>
+    </div>
+        <p class="small text-muted">
+        <strong>Measurements:</strong> {{ $item['measurements'] ?? 'Standard Size' }}
+    </p>
 
 @endsection

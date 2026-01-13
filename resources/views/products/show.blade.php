@@ -17,7 +17,7 @@
             <p class="fw-bold fs-4">Price: {{ $product->price }} Rs</p>
             <p class="text-muted">{{ $product->description }}</p>
 
-            <form method="POST" action="{{ route('cart.add', $product) }}" class="p-3 border rounded bg-light">
+            <!-- <form method="POST" action="{{ route('cart.add', $product) }}" class="p-3 border rounded bg-light">
                 @csrf
                 <label class="fw-bold">Size</label>
                 <select name="size" class="form-select mb-2" required>
@@ -26,13 +26,63 @@
                     <option value="M">M</option>
                     <option value="L">L</option>
                     <option value="XL">XL</option>
+                    <option value="Custom">Custom Tailoring</option>
                 </select>
 
+                <label class="fw-bold mt-2">Mesurement Notes (Optional)</label>
+                <textarea name="measurements" class="form-controle mb-3"  rows="3"
+                          placeholder="Example: Chest: 20in, Waist: 18in, Length: 25in..."></textarea>
                 <label class="fw-bold">Quantity</label>
                 <input type="number" name="quantity" value="1" min="1" class="form-control mb-3">
 
                 <button type="submit" class="btn btn-success w-100">Add to Cart</button>
-            </form>
+            </form> -->
+            <form method="POST" action="{{ route('cart.add', $product) }}" class="p-4 border rounded bg-white shadow-sm">
+    @csrf
+    
+    <div class="mb-3">
+        <label class="fw-bold mb-1">Size</label>
+        <select name="size" class="form-select" required>
+            <option value="">Choose size</option>
+            <option value="S">S</option>
+            <option value="M">M</option>
+            <option value="L">L</option>
+            <option value="XL">XL</option>
+            <option value="Custom">Custom Tailoring</option>
+        </select>
+    </div>
+
+    <!-- <div class="row">
+        <div class="col-md-8 mb-3">
+            <label class="fw-bold mb-1">Measurement Notes (Optional)</label>
+            <textarea name="measurements" class="form-control" rows="3" 
+                placeholder="Example: Chest: 20in, Waist: 18in, Length: 25in..."></textarea>
+        </div>
+        
+        <div class="col-md-4 mb-3">
+            <label class="fw-bold mb-1">Quantity</label>
+            <input type="number" name="quantity" value="1" min="1" class="form-control">
+        </div>
+    </div> -->
+<div class="row">
+    <div class="col-8">
+        <label class="fw-bold">Measurement Notes</label>
+        <textarea name="measurements" class="form-control" rows="3" placeholder="Chest, Waist, Height..."></textarea>
+    </div>
+    
+    <div class="col-4">
+        <label class="fw-bold">Quantity</label>
+        <input type="number" name="quantity" value="1" min="1" class="form-control">
+    </div>
+</div>
+
+
+
+
+    <!-- *************** -->
+
+    <button type="submit" class="btn btn-success w-100 py-2 fw-bold">Add to Cart</button>
+</form>
         </div>
     </div>
 
