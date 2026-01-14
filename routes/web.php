@@ -16,7 +16,10 @@ use App\Http\Controllers\CheckoutController;
 // });
 
 //  Standard pages 
-Route::get('/', [PageController::class, 'index'])->name('index');
+// Route::get('/', [PageController::class, 'index'])->name('index');
+
+Route::get('/', [ProductController::class, 'index'])->name('index');
+
 Route::get('/boutique', [PageController::class, 'boutique'])->name('boutique');
 Route::get('/contact', [PageController::class, 'contact'])->name('contact');
 
@@ -61,9 +64,12 @@ Route::get('/products', [ProductController::class, 'index'])->name('products.ind
 Route::get('/products/{product}', [ProductController::class, 'show'])->name('products.show');
 
 
+
 Route::get('/categories/{name}', [PageController::class, 'showCategory'])->name('category.show');
 // routes/web.php
 Route::get('/category/{slug}', [ProductController::class, 'showCategory'])->name('category.show');
+
+
 
 Route::get('/collections/{slug}', function($slug) {
     return redirect()->route('category.show', $slug);

@@ -36,6 +36,11 @@
 
         <button class="btn btn-warning">Update Product</button>
     </form>
+    <div class="form-check mb-3">
+        <input type="hidden" name="is_trendy" value="0"> {{-- Ensures a 0 is sent if unchecked --}}
+        <input type="checkbox" name="is_trendy" value="1" class="form-check-input" id="isTrendy">
+        <label class="form-check-label fw-bold" for="isTrendy">Mark as Trendy & Stylish</label>
+    </div>
 
 </div>
 @endsection

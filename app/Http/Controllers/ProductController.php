@@ -13,11 +13,58 @@ use Illuminate\Support\Facades\Storage; // Kept in case we re-add storage logic 
 class ProductController extends Controller
 {
     // Display a listing of the resource.
-    public function index()
-    {
-        $products = Product::all(); //recover all products
-        return view('products.index', compact('products')); //send for 
-    }
+    // public function index()
+    // {
+    //     $products = Product::all(); //recover all products
+    //     return view('products.index', compact('products')); //send for 
+        
+    // }
+
+    // public function index()
+    // {
+    //     // 1. Get products for the "New Products" section
+    //     $newProducts = Product::latest()->take(4)->get();
+
+    //     // 2. Get products specifically marked as 'Trendy'
+    //     $trendyProducts = Product::where('is_trendy', true)->latest()->get();
+
+    //     return view('index', compact('newProducts', 'trendyProducts'));
+    // }
+
+//     public function index()
+// {
+//     // 1. Fetch the data from the database
+//     $newProducts = Product::latest()->take(4)->get();
+    
+//     // This is the line you are likely missing!
+//     $trendyProducts = Product::where('is_trendy', true)->get(); 
+
+//     // 2. Pass BOTH variables to the view using compact()
+//     // If you don't put 'trendyProducts' here, the Blade file will crash.
+//     return view('index', compact('newProducts', 'trendyProducts'));
+// }
+
+//     public function index() {
+//         $newProducts = Product::latest()->take(4)->get();
+//         $trendyProducts = Product::where('is_trendy', true)->get(); // Fetching the data
+    
+//     return view('index', compact('newProducts', 'trendyProducts')); // Sending the data
+//  }
+
+public function index()
+{
+    // Fetch products for the 'New Products' section
+    $newProducts = Product::latest()->take(8)->get();
+    
+    // Fetch products specifically for the 'Trendy' section
+    // If you don't have this line, the section will be empty!
+    $trendyProducts = Product::where('is_trendy', true)->get(); 
+
+    // Return the index view and pass BOTH variables
+    return view('index', compact('newProducts', 'trendyProducts'));
+}
+
+
     
     // Show the form for creating a new resource.
     public function create() { 

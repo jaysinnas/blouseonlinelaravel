@@ -68,7 +68,7 @@
         </div>
 
         <!-- STYLISH AND TRENDY Section -->
-        <div class="trendy container w-100 mx-auto p-md-5 mt-4">
+        <!-- <div class="trendy container w-100 mx-auto p-md-5 mt-4">
             <div class="row g-5">
                 @foreach([
                     ['bag.jpg', 'Ladies Bag', 'Hurry up! 49% off', 'index', 4, 300],
@@ -76,12 +76,11 @@
                     ['shoes.jpg', 'Ladies Shoes', 'Hurry up! 65% off', 'index', 4, 300],
                     ['trend_style.jpg', 'Trendy & Stylish', 'Produce and supplies various Handicraft items all over the world', 'index', 8, 300],
                     ['new_dresses.jpg', 'New Dresses', 'Mega sale offer', 'index', 4, 300],
-                ] as $card)
-                    <div class="col-md-{{ $card[4] }}">
+                ] as $card) -->
+                    <!-- <div class="col-md-{{ $card[4] }}">
                         <a href="{{ route($card[3]) }}">
                             <div class="card border-success rounded-4 shadow-lg h-100">
-                                <!-- <img src="{{ asset('assets/images/imagescontainer/trendy/'.$card[0]) }}" class="card-img img-fluid object-fit-cover" alt="{{ $card[1] }}" style="height:{{ $card[5] }}px;"> -->
-                            <img 
+                                <img 
                                 src="{{ asset('assets/images/imagescontainer/trendy/' . $card[0]) }}" 
                                 class="card-img img-fluid object-fit-cover" 
                                 alt="{{ $card[1] }}">
@@ -98,7 +97,31 @@
                     </div>
                 @endforeach
             </div>
+        </div> -->
+       
+         <div class="container my-5">
+    <div class="bg-success-subtle p-5 rounded-4">
+        <h2 class="text-center text-danger fw-bold mb-5">Trendy & Stylish</h2>
+        
+        <div class="row g-5 justify-content-center"> 
+            @foreach($trendyProducts as $product)
+                <div class="col-12 col-md-6 col-lg-4"> <div class="card h-100 border-success rounded-4 shadow-sm">
+                        <img src="{{ asset('assets/images/imagescontainer/trendy/' . $product->image) }}" 
+                             class="card-img-top rounded-top-4 object-fit-cover" 
+                             style="height: 250px;" 
+                             alt="{{ $product->name }}">
+                        <div class="card-body text-center">
+                            <h5 class="card-title text-danger fs-6">{{ $product->name }}</h5>
+                            <p class="fw-bold">Special Offer!</p>
+                            <a href="{{ route('products.show', $product->id) }}" class="btn btn-sm btn-success w-100">View</a>
+                        </div>
+                    </div>
+                </div>
+            @endforeach
         </div>
+    </div>
+</div>
+
 
         <!-- POPULAR Section -->
         <div class="bg-danger-subtle p-5 mt-5">
