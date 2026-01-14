@@ -13,51 +13,6 @@ class CartController extends Controller
      * @param Product $product - Auto-injected by Route Model Binding
      * @return \Illuminate\Http\RedirectResponse
      */
-    // public function add(Request $request, Product $product)
-    // {
-    //     // 1. Validate the user input from the Product Detail Page form
-    //     $request->validate([
-    //         'size' => 'required|string|in:S,M,L,XL,XXL',
-    //         'quantity' => 'required|integer|min:1',
-    //     ]);
-
-    //     $size = $request->input('size');
-    //     $quantity = $request->input('quantity');
-
-    //     // 2. Define the unique identifier for this cart item
-    //     // We use the product ID and size combo to differentiate items (e.g., 'Shirt-M' is different from 'Shirt-L')
-    //     $cartItemId = $product->id . '-' . $size;
-
-    //     // 3. Build the cart item data
-    //     $cartItem = [
-    //         'id'       => $product->id,
-    //         'name'     => $product->name,
-    //         'price'    => $product->price,
-    //         'image'    => $product->image, // Assuming image exists on Product model
-    //         'size'     => $size,
-    //         'quantity' => $quantity,
-    //     ];
-        
-    //     // 4. Get the current cart from the session (or an empty array if none exists)
-    //     $cart = session()->get('cart', []);
-
-    //     // 5. Add or update the item in the cart
-    //     if (isset($cart[$cartItemId])) {
-    //         // Item already in cart, update the quantity
-    //         $cart[$cartItemId]['quantity'] += $quantity;
-    //     } else {
-    //         // New item, add it to the cart
-    //         $cart[$cartItemId] = $cartItem;
-    //     }
-
-    //     // 6. Store the updated cart back into the session
-    //     session()->put('cart', $cart);
-
-    //     // 7. Redirect the user
-    //     // We typically redirect back to the product page or to the cart index page
-    //     return redirect()->route('products.show', $product)
-    //                      ->with('success', "{$product->name} ({$size}) added to cart!");
-    // }
     
     public function add(Request $request, Product $product)
 {
@@ -98,6 +53,7 @@ class CartController extends Controller
     return redirect()->route('products.show', $product)
                      ->with('success', "Added to cart with measurements!");
 }
+
     /**
      * Shows the contents of the cart.
      */
@@ -161,27 +117,6 @@ class CartController extends Controller
         return redirect()->route('cart.index')->with('error', 'Item not found in cart.');
     }
 
-    // public function addToCart(Request $request, Product $product) 
-    // {
-    //     // 1. Get current cart from session
-    //     $cart = session()->get('cart', []);
-
-    //     // 2. Create a unique key for the item (Product ID + Size) 
-    //     // This allows the same dress to be added with different measurements
-    //     $cartItemId = $product->id . '_' . $request->size;
-        
-    //     $cart[$cartItemId] = [
-    //         "name" => $product->name,
-    //         "quantity" => $request->quantity,
-    //         "price" => $product->price,
-    //         "size" => $request->size,
-    //         "image" => $product->image_url,
-    //         "measurements" => $request->measurements, // Save the notes here!
-    //     ];
-    //     // 3. Put it back in the session
-    //     session()->put('cart', $cart);
-    //     return redirect()->back()->with('success', 'Added to cart with measurements!');
-    // }
 }
 
 
