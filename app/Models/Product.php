@@ -1,64 +1,71 @@
 <?php
 
+
 namespace App\Models;
 
-
 use App\Models\Comment;
-use Illuminate\Database\Eloquent\Factories\HasFactory; 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Facades\Storage; // Needed for the Accessor
+use Illuminate\Support\Facades\Storage;
 
 class Product extends Model
 {
     use HasFactory;
 
-     /**
+    /**
      * The attributes that are mass assignable.
-     * Crucial for security (Mass Assignment Protection).
      *
      * @var array<int, string>
      */
     protected $fillable = [
         'name',
-        'price',
         'description',
+        'price',
         'image',
         'category_id',
+        'is_trendy',
+        'discount_percent'
     ];
 
-      /**
+    /**
      * The attributes that should be cast.
-     * Ensures 'price' is consistently treated as a float.
      *
      * @var array
      */
-        protected $casts = [
-            'price' => 'float', 
-        ];
+    protected $casts = [
+        'price' => 'float',
+        'is_trendy' => 'boolean',
+        'discount_percent' => 'integer',
+    ];
 
-        /**
-     * Accessor to get the full public URL for the product image.
-     * This makes accessing the image in views much cleaner.
+    /**
+     * Get the full public URL for the product image.
      *
      * @return string|null
      */
+
     public function getImageUrlAttribute()
     {
-        // Check if the product has an image path saved
-        if ($this->image) {
-            // Use the Storage facade to generate the URL for the 'public' disk
-            // Expects image path like 'products/file.jpg' stored relative to the public disk
-            return Storage::disk('public')->url($this->image);
+        if (!$this->image) {
+            return asset('assets/images/defaults/no-image.jpg');
         }
 
-        // Return a placeholder or null if no image exists
-        return null; 
+        // Images stored in storage/app/public
+        return Storage::url($this->image);
     }
 
+
+    /**
+     * Get the category that owns the product.
+     */
     public function category()
     {
         return $this->belongsTo(Category::class);
     }
+
+    /**
+     * Get all comments for the product.
+     */
     public function comments()
     {
         return $this->hasMany(Comment::class);

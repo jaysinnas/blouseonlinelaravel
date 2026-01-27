@@ -29,6 +29,6 @@ class CommentSeeder extends Seeder
 
         // 2. Create a batch of 20 dummy comments using the factory
         Comment::factory(20)->create();
-
+        
     }
 }

@@ -5,7 +5,7 @@
 @section('content')
 
     <section class="bg-success-subtle">
-        <!-- Image Home page - overlay text -->
+        {{-- Hero Image --}}
         <div class="text-center my-5 p-3 position-relative">
             <img class="img-fluid custom-img border border-5 border-success rounded-4" 
                 src="{{ asset('assets/images/imagescontainer/accueil_image/ardy-arjun-2k6O6XQTrJY-unsplash.jpg') }}" 
@@ -22,7 +22,7 @@
             </div>
         </div>
 
-        <!-- Boutiques images -->
+        {{-- Boutiques Images --}}
         <div class="boutique d-flex justify-content-center flex-wrap gap-5 my-5 p-3">
             <div>
                 <a href="{{ route('index') }}">
@@ -41,7 +41,7 @@
             </div>
         </div>
 
-        <!-- NEW PRODUCTS -->
+        {{-- New Products Section --}}
         <div class="bg-danger-subtle p-5">
             <h2 class="fs-3 text-danger fw-bold mb-4 text-center">New Products</h2>
             <div class="row justify-content-center g-4">
@@ -67,133 +67,95 @@
             </div>
         </div>
 
-        <!-- STYLISH AND TRENDY Section -->
-        <!-- <div class="trendy container w-100 mx-auto p-md-5 mt-4">
-            <div class="row g-5">
-                @foreach([
-                    ['bag.jpg', 'Ladies Bag', 'Hurry up! 49% off', 'index', 4, 300],
-                    ['hats.jpg', 'Ladies Hats', 'Black Friday Offer!', 'index', 4, 300],
-                    ['shoes.jpg', 'Ladies Shoes', 'Hurry up! 65% off', 'index', 4, 300],
-                    ['trend_style.jpg', 'Trendy & Stylish', 'Produce and supplies various Handicraft items all over the world', 'index', 8, 300],
-                    ['new_dresses.jpg', 'New Dresses', 'Mega sale offer', 'index', 4, 300],
-                ] as $card) -->
-                    <!-- <div class="col-md-{{ $card[4] }}">
-                        <a href="{{ route($card[3]) }}">
-                            <div class="card border-success rounded-4 shadow-lg h-100">
-                                <img 
-                                src="{{ asset('assets/images/imagescontainer/trendy/' . $card[0]) }}" 
-                                class="card-img img-fluid object-fit-cover" 
-                                alt="{{ $card[1] }}">
-
-
-
-                                <div class="card-img-overlay d-flex flex-column justify-content-end">
-                                    <h2 class="fs-5 text-danger">{{ $card[1] }}</h2>
-                                    <p class="text-danger fw-bold fs-4">{{ $card[2] }}</p>
-                                    <p class="fw-bold text-black">Shop now!</p>
+         {{-- Trendy & Stylish Section --}}
+        <div class="container my-5">
+            <div class="bg-success-subtle p-5 rounded-4 shadow-sm">
+                <h2 class="text-center text-danger fw-bold mb-5">Trendy & Stylish</h2>
+                <div class="row g-5 justify-content-center"> 
+                    @forelse($trendyItems as $item)
+                        <div class="col-12 col-md-6 col-lg-4">
+                            <a href="{{ route('category.show', $item->category->slug) }}" class="text-decoration-none">
+                                <div class="card h-100 border-success rounded-4 shadow-lg border-2 overflow-hidden position-relative">
+                                    <img src="{{ $item->image_url }}" 
+                                         class="card-img object-fit-cover" 
+                                         style="height: 400px;" 
+                                         alt="{{ $item->name }}">
+                                    <div class="card-img-overlay d-flex flex-column justify-content-end bg-dark bg-opacity-10">
+                                        <h2 class="fs-4 text-danger fw-bold mb-0" style="text-shadow: 1px 1px 2px white;">
+                                            {{ $item->name }}
+                                        </h2>
+                                        @if($item->discount_percent > 0)
+                                            <p class="text-danger fw-bold fs-5 mb-1" style="text-shadow: 1px 1px 2px white;">
+                                                Hurry up! {{ $item->discount_percent }}% OFF
+                                            </p>
+                                        @endif
+                                        <p class="fw-bold text-black mb-2">Shop now!</p>
+                                    </div>
                                 </div>
-                            </div>
-                        </a>
-                    </div>
-                @endforeach
-            </div>
-        </div> -->
-       
-         <div class="container my-5">
-    <div class="bg-success-subtle p-5 rounded-4">
-        <h2 class="text-center text-danger fw-bold mb-5">Trendy & Stylish</h2>
-        
-        <div class="row g-5 justify-content-center"> 
-            @foreach($trendyProducts as $product)
-                <div class="col-12 col-md-6 col-lg-4"> <div class="card h-100 border-success rounded-4 shadow-sm">
-                        <img src="{{ asset('assets/images/imagescontainer/trendy/' . $product->image) }}" 
-                             class="card-img-top rounded-top-4 object-fit-cover" 
-                             style="height: 250px;" 
-                             alt="{{ $product->name }}">
-                        <div class="card-body text-center">
-                            <h5 class="card-title text-danger fs-6">{{ $product->name }}</h5>
-                            <p class="fw-bold">Special Offer!</p>
-                            <a href="{{ route('products.show', $product->id) }}" class="btn btn-sm btn-success w-100">View</a>
+                            </a>
                         </div>
-                    </div>
+                        @empty
+                            <p class="text-center text-muted col-12">No trendy products available.</p>
+                        @endforelse
                 </div>
-            @endforeach
-        </div>
-    </div>
-</div>
+            </div>
+        </div> 
 
 
-        <!-- POPULAR Section -->
+
+        {{-- Popular Section --}}
         <div class="bg-danger-subtle p-5 mt-5">
             <h2 class="text-center fs-2 fw-bold mb-5 text-success">POPULAR IN THIS WEEK</h2>
             <div class="row g-4">
-                <!-- {{-- Updated the array to use Category Slugs and the 'category.show' route --}} -->
                 @foreach([
-                    ['kidsDress.jpg', 'Babies', '3050', 'babies'], // Category slug is 'babies'
-                    ['Babies.jpg', 'Kids', '5500', 'kids'],       // Category slug is 'kids'
-                    ['aariWorks.jpg', 'Aari Blouse', '7000', 'aari blouse'], // Category slug is 'aari blouse'
-                    ['mother_daughter.jpg', 'Mother & Daughter', '9500', 'mother-daughter'], // Category slug is 'mother-daughter'
+                    ['kidsDress.jpg', 'Babies', '3050', 'babies_dresses'], 
+                    ['Babies.jpg', 'Kids', '5500', 'kids'],     
+                    ['aariWorks.jpg', 'Aari Blouse', '7000', 'aari_blouse'], 
+                    ['mother_daughter.jpg', 'Mother & Daughter', '9500', 'mum_daughter'], 
                 ] as $popular)
                     <div class="col-md-3">
                         <div class="card border-success rounded-4 shadow-lg h-100 position-relative overflow-hidden">
-                            <!-- {{-- Link uses the category.show route and passes the slug --}} -->
-                            <a href="{{ route('category.show', ['name' => $popular[3]]) }}">
+                            <a href="{{ route('category.show', $popular[3]) }}">
                                 <img src="{{ asset('assets/images/popular/'.$popular[0]) }}" class="card-img img-fluid object-fit-cover" alt="{{ $popular[1] }}" style="height:400px;">
                             </a>
                             <div class="popular position-absolute top-0 start-0 w-100 h-100 d-flex flex-column justify-content-center align-items-center text-center">
                                 <h4 class="fw-bold text-success">{{ $popular[1] }} <br><span>{{ $popular[2] }} RS</span></h4>
-                                <!-- {{-- Link uses the category.show route and passes the slug --}} -->
-                                <a href="{{ route('category.show', ['name' => $popular[3]]) }}" class="btn btn-sm btn-success mt-2">View all</a>
+                                <a href="{{ route('category.show', $popular[3]) }}" class="btn btn-sm btn-success mt-2">View all</a>
                             </div>
                         </div>
                     </div>
                 @endforeach
             </div>
         </div>
-        <!-- ***************** -->
 
-
-
-        <!-- icons -->
+        {{-- Features Section --}}
         <div class="p-5 mt-5">
             <div class="container">
                 <div class="row">
-                
-                    <!-- Bloc 1 -->
                     <div class="col-md-4">
                         <div class="d-flex align-items-center">
                             <img src="{{ asset('assets/images/icons_blouse/forwarder_18386347.png') }}" 
-                                alt="Delivery" 
-                                class="img-fluid me-3" 
-                                style="width:60px; height:60px;">
+                                alt="Delivery" class="img-fluid me-3" style="width:60px; height:60px;">
                             <div>
                                 <h4 class="mb-1"><span class="fst-italic">Free Home Delivery</span></h4>
                                 <p class="mb-0">Provide free home delivery for all product over $100</p>
                             </div>
                         </div>
                     </div>
-
-                    <!-- Bloc 2 -->
                     <div class="col-md-4">
                         <div class="d-flex align-items-center">
                             <img src="{{ asset('assets/images/icons_blouse/guarantee_17338009.png') }}" 
-                                alt="Quality" 
-                                class="img-fluid me-3" 
-                                style="width:60px; height:60px;">
+                                alt="Quality" class="img-fluid me-3" style="width:60px; height:60px;">
                             <div>
                                 <h4 class="mb-1"><span class="fst-italic">Quality Products</span></h4>
                                 <p class="mb-0">We ensure our product quality all times</p>
                             </div>
                         </div>
                     </div>
-
-                    <!-- Bloc 3 -->
                     <div class="col-md-4">
                         <div class="d-flex align-items-center">
                             <img src="{{ asset('assets/images/icons_blouse/return-package_15002556.png') }}" 
-                            alt="Return" 
-                            class="img-fluid me-3" 
-                            style="width:60px; height:60px;">
+                                alt="Return" class="img-fluid me-3" style="width:60px; height:60px;">
                             <div>
                                 <h4 class="mb-1"><span class="fst-italic">3 Day Return</span></h4>
                                 <p class="mb-0">Our product return policy is very easy & simple</p>
@@ -203,9 +165,8 @@
                 </div>
             </div>
         </div>
-        
 
-        <!-- Subscription Form -->
+        {{-- Newsletter Subscription --}}
         <div class="container py-4 px-5 bg-danger-subtle rounded-4 mt-5">
             <div class="row align-items-center">
                 <div class="col-md-8 mb-3 mb-md-0">
@@ -214,7 +175,7 @@
                 </div>
                 <div class="col-md-4">
                     <form action="#">
-                        <div class="input-group ">
+                        <div class="input-group">
                             <input type="text" class="form-control py-2" placeholder="Enter your mail">
                             <button class="btn btn-success rounded" type="submit">Submit</button>
                         </div>
@@ -227,5 +188,4 @@
     <a id="scrollup" href="#top">
         <i class="fa fa-angle-up text-danger"></i>
     </a>
-
 @endsection

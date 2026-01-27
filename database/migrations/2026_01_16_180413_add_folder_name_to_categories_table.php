@@ -11,10 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('products', function (Blueprint $table) {
-            // This adds the checkbox logic. Default is 'false' (not trendy).
-            $table->boolean('is_trendy')->default(false)->after('price');
-    });
+        Schema::table('categories', function (Blueprint $table) {
+            $table->string('folder_name')->nullable();
+        });
     }
 
     /**
@@ -22,8 +21,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('products', function (Blueprint $table) {
-              $table->dropColumn('is_trendy');
+        Schema::table('categories', function (Blueprint $table) {
+            //
         });
     }
 };

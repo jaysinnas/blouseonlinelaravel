@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\HomeController;
+// use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\CommentController;
@@ -11,14 +11,10 @@ use App\Http\Controllers\CartController;
 use App\Http\Controllers\CheckoutController;
 
 
-// Route::get('/index', function(){
-//     return view('index'); //reference for index.blade.php
-// });
-
-//  Standard pages 
-// Route::get('/', [PageController::class, 'index'])->name('index');
 
 Route::get('/', [ProductController::class, 'index'])->name('index');
+
+// Route::get('/', [PageController::class, 'index'])->name('index');
 
 Route::get('/boutique', [PageController::class, 'boutique'])->name('boutique');
 Route::get('/contact', [PageController::class, 'contact'])->name('contact');
@@ -67,7 +63,8 @@ Route::get('/products/{product}', [ProductController::class, 'show'])->name('pro
 
 Route::get('/categories/{name}', [PageController::class, 'showCategory'])->name('category.show');
 // routes/web.php
-Route::get('/category/{slug}', [ProductController::class, 'showCategory'])->name('category.show');
+// Route::get('/category/{slug}', [ProductController::class, 'showCategory'])->name('category.show');
+Route::get('/categories/{slug}', [ProductController::class, 'showCategory'])->name('category.show');
 
 
 
@@ -81,8 +78,7 @@ Route::get('/search', [PageController::class, 'search'])->name('search');
 Route::get('/search-results', [PageController::class, 'searchResults'])->name('search.results');
 
 
-// The {product} parameter is used by Laravel to fetch the model instance
-// Route::get('/products/{product}', [ProductController::class, 'show'])->name('products.show');
+
 
 //cart Controller
 Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
@@ -128,4 +124,10 @@ Route::post('/checkout/store', [CheckoutController::class, 'store'])->name('chec
 Route::get('/checkout/success', [CheckoutController::class, 'success'])->name('checkout.success');
 
 
+// trendy
 
+// Trendy & Stylish section page
+Route::get('/trendy', [ProductController::class, 'trendySection'])->name('trendy');
+
+// Product detail page
+Route::get('/product/{id}', [ProductController::class, 'showProduct'])->name('product.show');
