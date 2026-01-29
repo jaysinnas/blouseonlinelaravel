@@ -56,8 +56,13 @@ class CategorySeeder extends Seeder
             ['name' => 'Women', 'slug' => 'women'],
             ['name' => 'Men', 'slug' => 'men'],
             ['name' => 'Accessories', 'slug' => 'accessories', 'folder_name' => 'trendy_bag'],
-            ['name' => 'Shoes', 'slug' => 'shoes', 'folder_name' => 'trendy_shoes'],
-        ];
+            // ['name' => 'Shoes', 'slug' => 'shoes', 'folder_name' => 'trendy_shoes'],
+            // ['name' => 'Bags', 'slug' => 'bags', 'folder_name' => 'trendy_bags'],
+            // ['name' => 'Scarfs', 'slug' => 'scarfs', 'folder_name' => 'trendy_scarfs'],
+            // ['name' => 'Hats', 'slug' => 'hatss', 'folder_name' => 'trendy_hats'],
+            // ['name' => 'Dresses', 'slug' => 'dresses', 'folder_name' => 'trendy_dresses'],
+        
+         ];
 
         foreach ($categories as $category) {
             Category::firstOrCreate(

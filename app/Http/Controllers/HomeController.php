@@ -19,3 +19,4 @@
 //         return view('index', compact('trendyProducts'));
 //     }
 // }
+

@@ -128,21 +128,24 @@ class ProductController extends Controller
         return view('category.show', compact('category', 'products'));
     }
     // Show 5 trendy products in the section
-    public function trendySection()
-    {
-        $products = Product::where('is_trendy', true)
-            ->take(5)
-            ->get();
+    // public function trendySection()
+    // {
+    //     $products = Product::where('is_trendy', true)
+    //         ->take(5)
+    //         ->get();
 
-        return view('trendy', compact('products'));
-    }
+    //     return view('trendy', compact('products'));
+    // }
 
     // Show product detail page
-    public function showProduct($id)
+     // Model-bound show: Laravel will inject Product by id
+    public function showTrendy(Product $product)
     {
-        $product = Product::findOrFail($id);
-        return view('product-details', compact('product'));
+        $product->load(['category', 'comments']);
+        return view('products.show', compact('product'));
     }
+
+    
 
 
 }

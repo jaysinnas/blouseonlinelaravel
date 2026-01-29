@@ -130,4 +130,7 @@ Route::get('/checkout/success', [CheckoutController::class, 'success'])->name('c
 Route::get('/trendy', [ProductController::class, 'trendySection'])->name('trendy');
 
 // Product detail page
-Route::get('/product/{id}', [ProductController::class, 'showProduct'])->name('product.show');
+Route::get('/product/{product}', [ProductController::class, 'showProduct'])->name('product.show');
+
+// Product detail route mapped to your existing showTrendy method
+Route::get('/product/{product}', [ProductController::class, 'showTrendy'])->name('product.show');

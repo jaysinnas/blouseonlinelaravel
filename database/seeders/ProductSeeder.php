@@ -2,7 +2,7 @@
 
 namespace Database\Seeders;
 
-
+use Illuminate\Support\Str;
 use Illuminate\Database\Seeder;
 use App\Models\Product;
 use App\Models\Category;
@@ -14,6 +14,9 @@ class ProductSeeder extends Seeder
      */
     public function run(): void
     {
+
+
+    
         // Ensure categories exist and get their IDs
         $babiesId = Category::firstOrCreate(
             ['slug' => 'babies_dresses'],
