@@ -16,7 +16,7 @@
             <div class="col-md-4">
                 <div class="mb-3">
                     <img src="{{ asset('assets/images/imagescontainer/tailor_shop/raj-adhikari-XcsFNBAeb9k-unsplash.jpg') }}" alt="Tailoring shop"
-                         class="img-fluid rounded border border-3 border-danger shadow-sm">
+                         class="img-fluid rounded border border-danger shadow-sm">
                 </div>
             </div>
 

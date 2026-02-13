@@ -1,36 +1,6 @@
 <?php
 
-namespace App\Models;
-
-// use Illuminate\Database\Eloquent\Model;
-// use Illuminate\Database\Eloquent\Factories\HasFactory;
-
-// class Category extends Model
-// {
-    // protected $fillable = ['name', 'slug', 'folder_name'];
-
-    // public function products()
-    // {
-    //     return $this->hasMany(Product::class);
-    // }
-
-    // use HasFactory;
-
-    // protected $fillable = [
-    //     'name',
-    //     'slug',
-    //     'folder_name',
-    // ];
-
-    /**
-     * A category has many products
-     */
-//     public function products()
-//     {
-//         return $this->hasMany(Product::class);
-//     }
-// }
-
+declare(strict_types=1);
 
 namespace App\Models;
 
@@ -59,4 +29,10 @@ class Category extends Model
     {
         return $this->hasMany(Product::class);
     }
+      public function getRouteKeyName()
+    {
+        return 'slug';
+    }
+
+    
 }

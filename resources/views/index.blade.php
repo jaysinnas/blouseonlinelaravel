@@ -7,7 +7,7 @@
     <section class="bg-success-subtle">
         {{-- Hero Image --}}
         <div class="text-center my-5 p-3 position-relative">
-            <img class="img-fluid custom-img border border-5 border-success rounded-4" 
+            <img class="img-fluid custom-img border border-success rounded-4" 
                 src="{{ asset('assets/images/imagescontainer/accueil_image/ardy-arjun-2k6O6XQTrJY-unsplash.jpg') }}" 
                 alt="habits style">
             <div class="overlay-text position-absolute top-50 start-50 translate-middle text-white text-center fade-in">
@@ -17,7 +17,7 @@
                     <a href="https://names4brands.com" class="text-success fw-bold fs-4 text-decoration-none">
                         More infos
                     </a>
-                    <hr class="flex-grow-1 border border-success ms-3">
+                    <hr class="border border-success ms-3">
                 </div>
             </div>
         </div>
@@ -67,41 +67,51 @@
             </div>
         </div>
 
-         {{-- Trendy & Stylish Section --}}
+     
+        {{-- Trendy & Stylish Section --}}
         <div class="container my-5">
             <div class="bg-success-subtle p-5 rounded-4 shadow-sm">
                 <h2 class="text-center text-danger fw-bold mb-5">Trendy & Stylish</h2>
                 <div class="row g-5 justify-content-center"> 
-                    @forelse($trendyItems as $item)
-                        <div class="col-12 col-md-6 col-lg-4">
-                            <a href="{{ route('category.show', $item->category->slug) }}" class="text-decoration-none">
-                                <div class="card h-100 border-success rounded-4 shadow-lg border-2 overflow-hidden position-relative">
-                                    <img src="{{ $item->image_url }}" 
-                                         class="card-img object-fit-cover" 
-                                         style="height: 400px;" 
-                                         alt="{{ $item->name }}">
-                                    <div class="card-img-overlay d-flex flex-column justify-content-end bg-dark bg-opacity-10">
-                                        <h2 class="fs-4 text-danger fw-bold mb-0" style="text-shadow: 1px 1px 2px white;">
-                                            {{ $item->name }}
-                                        </h2>
-                                        @if($item->discount_percent > 0)
-                                            <p class="text-danger fw-bold fs-5 mb-1" style="text-shadow: 1px 1px 2px white;">
-                                                Hurry up! {{ $item->discount_percent }}% OFF
-                                            </p>
-                                        @endif
-                                        <p class="fw-bold text-black mb-2">Shop now!</p>
+                    @forelse($trendyCategories as $category)
+                        @php
+                            $product = $category->products->first();
+                        @endphp
+                        
+
+                        @if($product)
+                            <div class="col-12 col-md-6 col-lg-4">
+                                <a href="{{ route('trendy.category', $category->slug) }}"
+                                    class="text-decoration-none">
+                                    <div class="card h-100 border-success rounded-4 shadow-lg border-2 overflow-hidden position-relative">
+
+                                        <img src="{{ $product->image_url }}"
+                                            class="card-img object-fit-cover" 
+                                            style="height: 400px;" 
+                                            alt="{{ $category->name }}">
+
+                                        <div class="card-img-overlay d-flex flex-column justify-content-end bg-dark bg-opacity-10">
+                                            <h3 class="fs-4 text-danger fw-bold mb-0" style="text-shadow: 1px 1px 2px white;">
+                                                {{ $category->name }}
+                                            </h3>
+                                            @if($product->discount_percent)
+                                                <p class="text-danger fw-bold fs-5 mb-1" style="text-shadow: 1px 1px 2px white;">
+                                                    Hurry up! {{ $product->discount_percent }}% OFF
+                                                </p>
+                                            @endif
+                                            <p class="fw-bold text-black mb-2">Shop now!</p>
+                                        </div>
                                     </div>
-                                </div>
-                            </a>
-                        </div>
-                        @empty
-                            <p class="text-center text-muted col-12">No trendy products available.</p>
-                        @endforelse
+                                </a>
+                            </div>
+                        @endif
+                    @empty
+                        <p class="text-center text-muted col-12">No trendy products available.</p>
+                    @endforelse
                 </div>
             </div>
         </div> 
-
-
+     
 
         {{-- Popular Section --}}
         <div class="bg-danger-subtle p-5 mt-5">

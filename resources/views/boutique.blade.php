@@ -22,7 +22,7 @@
                     <!-- Image à gauche (ou en haut sur mobile) -->
                     <div class="tailor_Shop">
                         <img src="{{ asset('assets/images/imagescontainer/tailor_shop/raj-adhikari-XcsFNBAeb9k-unsplash.jpg') }}" alt="Tailoring shop"
-                        class="img-fluid rounded border border-3 border-danger " style="max-width:400px; ">
+                            class="img-fluid rounded border border-danger " style="max-width:400px; ">
                     </div>
                     <!-- Adresse à droite (ou en dessous sur mobile) -->
                     <div class=" border border-danger rounded p-md-5" >

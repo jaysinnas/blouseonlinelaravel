@@ -17,11 +17,12 @@ class DatabaseSeeder extends Seeder
         User::factory()->create([
             'name' => 'Test User',
             'email' => 'test@example.com',
+            'password' => bcrypt('password'), // password: 'password'
         ]);
 
         // Call all application-specific seeders
         $this->call([
-            CategorySeeder::class,
+            CategorySeeder::class, // Seed categories first
             ProductSeeder::class, // Populates the products table
             CommentSeeder::class, // Populates the comments table (FIXED: Added this line)
         ]);

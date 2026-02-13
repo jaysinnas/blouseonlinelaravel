@@ -11,7 +11,7 @@
 
         {{-- Product Name --}}
         <div class="mb-3">
-            <label class="form-label fw-bold">Product Name</label>
+            <label class="form-label fw-bold text-danger">Product Name</label>
             <input type="text" name="name" class="form-control" value="{{ old('name') }}" required>
             @error('name')
                 <small class="text-danger">{{ $message }}</small>

@@ -3,7 +3,7 @@
 @section('title', 'Checkout Payment')
 
 @section('content')
-    <div class="container my-5 mx-auto border border-4">
+    <div class="container my-5 mx-auto border border-danger">
         <div class="row justify-content-center">
             <div class="col-lg-8 mt-4">
                 <!-- checkout summary -->

@@ -43,7 +43,7 @@
                 <div class="d-flex flex-column flex-md-row align-items-center justify-content-center gap-5">
                     <div class="tailor_Shop">
                         <img src="{{ asset('assets/images/imagescontainer/tailor_shop/raj-adhikari-XcsFNBAeb9k-unsplash.jpg') }}" alt="Tailoring shop"
-                        class="img-fluid rounded border border-3 border-danger" style="max-width:500px;">
+                        class="img-fluid rounded border border-danger" style="max-width:500px;">
                     </div>
                     <!-- Contact address-->
                     <div class=" border border-danger rounded p-md-5" >

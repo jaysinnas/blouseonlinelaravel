@@ -61,3 +61,33 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
 
 
+
+# Laravel E-commerce Project
+
+Internship project developed using Laravel.
+
+## Features
+- Category & Product management
+- Trendy section
+- Pagination
+- Wishlist icon overlay
+- Comments system
+
+
+## Installation
+
+```bash
+    composer install
+    cp .env.example .env
+    php artisan key:generate
+    php artisan migrate --seed
+    npm install
+    npm run build
+    php artisan serve
+
+    Tech Stack
+
+        Laravel
+        Tailwind CSS
+        Bootstrap 5
+        MySQL

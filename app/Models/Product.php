@@ -54,6 +54,15 @@ class Product extends Model
         return Storage::url($this->image);
     }
 
+        public function getDiscountPriceAttribute()
+    {
+        if ($this->discount_percent) {
+            return $this->price * (1 - $this->discount_percent / 100);
+        }
+        return $this->price;
+    }
+
+
 
     /**
      * Get the category that owns the product.

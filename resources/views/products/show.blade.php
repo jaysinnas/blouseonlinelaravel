@@ -4,7 +4,7 @@
 
 @section('content')
 <div class="container py-5">
-    <h1 class="text-center mb-4">{{ $product->name }}</h1>
+    <h1 class="text-center text-success mb-4">{{ $product->name }}</h1>
 
     <div class="row justify-content-center mb-5">
         <div class="col-md-5">

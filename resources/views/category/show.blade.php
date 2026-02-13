@@ -28,13 +28,6 @@
                                 ₹{{ number_format($product->price, 2) }}
                             </p>
 
-                            @if($product->discount_percent > 0)
-                                <span class="badge bg-danger w-50 mb-2">
-                                    {{ $product->discount_percent }}% OFF
-                                </span>
-                            @endif
-
-                            <!-- <button class="btn btn-success btn-sm w-100 mt-2">View Details</button> -->
                             <span class="btn btn-success btn-sm w-100 mt-2">View Details</span>
 
                         </div>

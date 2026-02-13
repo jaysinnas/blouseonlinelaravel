@@ -1,45 +1,12 @@
 <?php
 
-// namespace Database\Seeders;
-
-// use Illuminate\Database\Console\Seeds\WithoutModelEvents;
-// use Illuminate\Database\Seeder;
-// use App\Models\Category;
-
-// class CategorySeeder extends Seeder
-// {
-    /**
-     * Run the database seeds.
-     */
-//     public function run(): void
-//     {
-//         $categories = [
-//             ['name' => 'Babies', 'slug' => 'babies_dresses'],
-//             ['name' => 'Kids', 'slug' => 'kids'],
-//             ['name' => 'Aari Blouse', 'slug' => 'aari_blouse'],
-//             ['name' => 'Mother & Daughter', 'slug' => 'mum_daughter'],
-//             ['name' => 'Women', 'slug' => 'women'],
-//             ['name' => 'Men', 'slug' => 'men'],
-//             ['name' => 'Accessories', 'slug' => 'accessories'],
-//            ['name' => 'Shoes', 'slug' => 'shoes', 'folder' => 'trendy_shoes'],
-//         ];
-
-//         foreach ($categories as $category) {
-//             Category::firstOrCreate(
-//                 ['slug' => $category['slug']],
-//                 ['name' => $category['name'],
-//                 'folder_name' => $category['folder']
-//                 ]
-//             );
-//         }
-//     }
-// }
-
-
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use App\Models\Category;
+use Illuminate\Support\Str;
+use App\Models\Product;
+use Illuminate\Support\Facades\Storage;
 
 class CategorySeeder extends Seeder
 {
@@ -49,29 +16,65 @@ class CategorySeeder extends Seeder
     public function run(): void
     {
         $categories = [
-            ['name' => 'Babies', 'slug' => 'babies-dresses'],
-            ['name' => 'Kids', 'slug' => 'kids'],
-            ['name' => 'Aari Blouse', 'slug' => 'aari-blouse'],
-            ['name' => 'Mother & Daughter', 'slug' => 'mother-daughter'],
-            ['name' => 'Women', 'slug' => 'women'],
-            ['name' => 'Men', 'slug' => 'men'],
-            ['name' => 'Accessories', 'slug' => 'accessories', 'folder_name' => 'trendy_bag'],
-            // ['name' => 'Shoes', 'slug' => 'shoes', 'folder_name' => 'trendy_shoes'],
-            // ['name' => 'Bags', 'slug' => 'bags', 'folder_name' => 'trendy_bags'],
-            // ['name' => 'Scarfs', 'slug' => 'scarfs', 'folder_name' => 'trendy_scarfs'],
-            // ['name' => 'Hats', 'slug' => 'hatss', 'folder_name' => 'trendy_hats'],
-            // ['name' => 'Dresses', 'slug' => 'dresses', 'folder_name' => 'trendy_dresses'],
+            ['name' => 'Babies',
+             'slug' => 'babies_dresses',
+             'folder_name' => 'babies_dresses'
+             ],
+            ['name' => 'Kids',
+             'slug' => 'kids',
+             'folder_name' => 'kids',
+             ],
+            ['name' => 'Aari Blouse',
+             'slug' => 'aari_blouse',
+             'folder_name' => 'aari_blouse',
+             ],
+            ['name' => 'Mother & Daughter',
+             'slug' => 'mother-daughter',
+             'folder_name' => 'mum_daughter',
+             ],
+            ['name' => 'Women',
+             'slug' => 'women',
+             'folder_name' => 'women',
+             ],
+            ['name' => 'Men',
+             'slug' => 'men',
+             'folder_name' => 'men',],
+            
+            ['name' => 'Shoes',
+             'slug' => 'trendy_shoes',
+             'folder_name' => 'trendy_shoes',
+             ],
+            ['name' => 'Bags',
+             'slug' => 'trendy_bags',
+             'folder_name' => 'trendy_bags',
+            ],
+            ['name' => 'Scarfs',
+             'slug' => 'trendy_scarfs',
+              'folder_name' => 'trendy_scarfs',
+            ],
+            ['name' => 'Hats',
+             'slug' => 'trendy_hats',
+             'folder_name' => 'trendy_hats',
+            ],
+            ['name' => 'Dresses',
+             'slug' => 'trendy_dresses',
+              'folder_name' => 'trendy_dresses',
+            ],
+            ['name' => 'Trendy & Stylish',
+             'slug' => 'trendystylish',
+             'folder_name' => 'trendystylish',]
         
          ];
 
         foreach ($categories as $category) {
-            Category::firstOrCreate(
+            Category::updateOrCreate(
                 ['slug' => $category['slug']],
-                [
-                    'name' => $category['name'],
-                    'folder_name' => $category['folder_name'] ?? null,
-                ]
+                $category
+                // [
+                //   'name' => $category['name'],
+                //   'folder_name' => $category['folder_name'],
+                // ]
             );
         }
     }
-}
+} 
